@@ -11,7 +11,7 @@ import {
 
 const Header = () =>{
     return (
-        <div className="flex shadow-sm bg-gray-50 p-4 justify-between">
+        <header className="flex shadow-sm bg-gray-50 p-4 justify-between">
             <div className="flex space-x-3">
                 <p className="text-gray-400">Address</p>
                 <p className="text-gray-400">0xc14D1bdD7A28b12fa3e88FE2bE9e193Bdfdlk8bb940A6</p>
@@ -23,7 +23,7 @@ const Header = () =>{
                 <ExitToAppIcon/>
                 <p className="text-gray-600 font-semibold">Close</p>
             </div>
-        </div>
+        </header>
     );
 }
 

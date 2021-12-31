@@ -12,6 +12,7 @@ import {
 import {
     FiLayers,
 } from "react-icons/fi";
+import Link from 'next/link'
 
 
 
@@ -22,11 +23,15 @@ export const Menu = () =>{
             <h1 className="text-gray-400">Menu</h1>
             <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
                 <DonutLargeIcon/>
-                <p>Dashboard</p>
+            <Link href="/dashboard">
+                <a>Dashboard</a>
+            </Link>
             </div>
             <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
                 <ClearAllIcon/>
-                <p>Transaction</p>
+            <Link href="/about">
+                <a>Transaction</a>
+                </Link>
             </div>
             <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
                 <ArrowUpwardIcon/>

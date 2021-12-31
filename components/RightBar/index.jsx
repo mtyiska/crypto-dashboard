@@ -1,8 +1,8 @@
 import React from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
+// import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+// import { Doughnut } from 'react-chartjs-2';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+// ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -43,18 +43,9 @@ const  RightBar = () => {
             </div>
 
             <div className="p-4  flex items-center justify-center">
+                Right
 
-                {/* <div className="flex justify-center items-center     h-48 w-48   rounded-full" style={{ borderWidth: "16px" }} >
-                    <div className="flex justify-center items-center  border-gray-200 h-44 w-44 rounded-full ">
-                        <div className=" flex flex-col justify-center items-center shadow-2xl h-32 w-32 rounded-full  ">
-                            <p className="text-gray-800 font-semibold"> 17.0216 EGLD</p>
-                            <p className="text-blue-700 font-semibold text-sm"> Claim Now</p>
-
-                        </div>
-
-                    </div>
-                </div> */}
-                <Doughnut data={data} />
+                {/* <Doughnut data={data} /> */}
 
             </div>
 

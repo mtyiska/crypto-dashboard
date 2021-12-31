@@ -1,8 +1,8 @@
-import Card from "../Card";
-import Middle from "../Middle";
-import RightBar from "../RightBar";
+import Card from "../components/Card";
+import Middle from "../components/Middle";
+import RightBar from "../components/RightBar";
 
-const Container = () =>{
+const Dashboard = () =>{
     return (
         <div className="bg-gradient-to-r from-gray-100 to-gray-50 h-full">
             <div className="px-8 py-1">
@@ -26,4 +26,4 @@ const Container = () =>{
     )
 }
 
-export default Container;
+export default Dashboard;

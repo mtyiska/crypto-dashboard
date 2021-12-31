@@ -5,10 +5,11 @@ import {Menu} from "./Menu";
 
 const SideBar = () =>{
     return (
-        <div className="md:w-4/12 w-6/12 h-screen shadow-2xl">
+        // <nav className="md:w-2/12 w-4/12 h-screen shadow-2xl">
+        <nav >
             <Brand/>
             <Menu/>
-        </div>
+        </nav>
     )
 }
 
