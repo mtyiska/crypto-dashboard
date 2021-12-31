@@ -1,13 +1,12 @@
 import Card from "../components/Card";
-import Middle from "../components/Middle";
-import RightBar from "../components/RightBar";
+import CustomChart from "../components/CustomChart";
 
 const Dashboard = () =>{
     return (
-        <div className="bg-gradient-to-r from-gray-100 to-gray-50 h-full">
+        <div className=" min-h-screen h-screen">
             <div className="px-8 py-1">
                 <p className="text-gray-500 text-lg">Bitcoin</p>
-                <p className="font-bold text-2xl transform -translate-y-2">
+                <p className="text-green-100 font-bold text-2xl transform -translate-y-2">
                     Michael Tyiska
                 </p>
             </div>
@@ -18,8 +17,7 @@ const Dashboard = () =>{
                 <Card title="DELEGATED" balance={339.0790} icon={3} />
             </div>
             <div className="flex ml-3 mt-6 space-x-6 mr-4">
-                <Middle/>
-                <RightBar/>
+                <CustomChart/>
             </div>
 
         </div>

@@ -1,87 +1,49 @@
 import {
-    MdDonutLarge,
-    MdOutlineClearAll,
-    MdSyncAlt,
-    MdEco,
-} from "react-icons/md";
-import {
-    AiOutlineArrowUp,
-    AiOutlineArrowDown,
-    AiOutlineLock,
-} from "react-icons/ai";
-import {
-    FiLayers,
+    FiChevronDown
 } from "react-icons/fi";
-import Link from 'next/link'
 
-
-
-export const Menu = () =>{
+const Menu = () =>{
     return(
-    <div className="p-4 space-y-14">
-        <div className="space-y-4">
-            <h1 className="text-gray-400">Menu</h1>
-            <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
-                <DonutLargeIcon/>
-            <Link href="/dashboard">
-                <a>Dashboard</a>
-            </Link>
+        <div className="bg-gray-800-mike w-56 flex-none flex flex-col justify-between">
+            <div className="overflow-y-auto active:text-gray-100 hover:text-gray-200 text-gray-400">
+                <ul className="px2 py-3">
+                    <li className="text-gray-300 px-2 active:text-gray-100 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
+                        <a href="#" className="flex items-center">
+                            <span className="text-xl">#</span>
+                            <span className="ml-2">welcome</span>
+                        </a>
+                    </li>
+                    <li className="text-gray-300 px-2 active:text-gray-100 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
+                        <a href="#" className="flex items-center">
+                            <span className="text-xl">#</span>
+                            <span className="ml-2">faq</span>
+                        </a>
+                    </li>
+                    <button className="flex items-center text-gray-500 hover:text-gray-200 active:font-semibold">
+                        <ChevDown/>
+                        <h3 className="uppercase tracking-wide font-semibold text-xs">Tailwind Css</h3>
+                    </button>
+                    <ul class="px-2 py-3 pt-2">
+                        <li class="text-gray-200 px-2 hover:text-gray-200 hover:bg-gray-900 bg-gray-750 rounded">
+                            <a href="#" class="flex items-center">
+                            <span class="text-xl">#</span>
+                            <span class="ml-2">general</span>
+                            </a>
+                        </li>
+                        <li class="text-gray-200 px-2 hover:text-gray-200 hover:bg-gray-900">
+                            <a href="#" class="flex items-center">
+                            <span class="text-xl">#</span>
+                            <span class="ml-2">core-dev</span>
+                            </a>
+                        </li>
+                    </ul>
+                </ul>
             </div>
-            <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
-                <ClearAllIcon/>
-            <Link href="/about">
-                <a>Transaction</a>
-                </Link>
-            </div>
-            <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
-                <ArrowUpwardIcon/>
-                <p>Send</p>
-            </div>
-            <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
-                <ArrowDownwardIcon/>
-                <p>Receive</p>
-            </div>
-            <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
-                <SyncAltIcon/>
-                <p>Buy</p>
-            </div>
+            <div className="bg-gray-footer-mike h-12 px-3 py-2"> footer</div>
         </div>
-        
-        <div className="space-y-6">
-            <h1 className="text-gray-400">Delegations</h1>
-            <div>
-                <div className="flex p-3 text-gray-700  space-x-4 0 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
-                    <LockIcon/>
-                    <p className="text-gray-600">Delegate</p>
-                </div>
-            </div>
-            <div>
-                <div className="flex p-3 text-gray-700  space-x-4 0 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
-                    <EcoIcon/>
-                    <p className="text-gray-600">Delegate</p>
-                </div>
-            </div>
-        </div>
-
-        <div className="space-y-6">
-            <h1 className="text-gray-400">Taking</h1>
-            <div>
-                <div className="flex p-3 text-gray-700  space-x-4 0 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
-                    <LayersIcon/>
-                    <p className="text-gray-600  " >Validate</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
     )
 }
 
-const DonutLargeIcon = () => (<MdDonutLarge size="24" className="text-gray-300"/>);
-const ClearAllIcon = () => <MdOutlineClearAll size="24" className="text-gray-300" />;
-const ArrowUpwardIcon = () => <AiOutlineArrowUp size="24" className="text-gray-300" />;
-const ArrowDownwardIcon = () => <AiOutlineArrowDown size="24" className="text-gray-300" />;
-const SyncAltIcon = () => <MdSyncAlt size="24" className="text-gray-300" />;
-const LockIcon = () => <AiOutlineLock size="24" className="text-gray-300" />;
-const EcoIcon = () => <MdEco size="24" className="text-gray-300" />;
-const LayersIcon = () => <FiLayers size="24" className="text-gray-300" />;
+export default Menu
+
+const ChevDown = () => <FiChevronDown size="32" className="text-gray-300" />;
