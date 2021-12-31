@@ -30,6 +30,14 @@ module.exports = {
         'gray-900-spotify': '#121212',
         'gray-800-spotify': '#181818',
         'gray-700-spotify': '#282828',
+        'gray-900-discord': '#18191c',
+        'gray-900-ben': '#212224',
+        'gray-900-mike': '#22262A',
+        'gray-800-mike': '#2F3136',
+        'gray-700-mike': '#37383F',
+        'gray-form-mike': '#313239',
+        'gray-footer-mike': '#292A2E'
+
       },
       spacing: {
         '14': '3.5rem',
