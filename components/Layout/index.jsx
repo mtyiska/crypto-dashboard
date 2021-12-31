@@ -2,6 +2,24 @@ import SideBar from "../SideBar"
 
 import Header from "../Header"
 import Head from "next/head"
+
+import {
+    MdDonutLarge,
+    MdOutlineClearAll,
+    MdSyncAlt,
+    MdEco,
+} from "react-icons/md";
+import {
+    AiOutlineArrowUp,
+    AiOutlineArrowDown,
+    AiOutlineLock,
+} from "react-icons/ai";
+import {
+    FiLayers,
+} from "react-icons/fi";
+import Link from 'next/link'
+
+
 const Layout = ({children}) => {
     return (
     <>
@@ -10,11 +28,50 @@ const Layout = ({children}) => {
     </Head>
 
     <div className="flex">
+        {/* logos */}
 
-        <div className="w-20 flex-none flex-col min-h-screen h-screen overflow-y-auto">
-            Logos.
+        <div className="bg-gray-900 w-20 flex-none flex-col min-h-screen h-screen overflow-y-auto px-2 py-2 divide-y-2">
+        
+            <div className="space-y-2 py-2">
+                <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
+                <Link href="/dashboard">
+                    <a><DonutLargeIcon/></a>
+                </Link>
+                </div>
+                <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
+                    <Link href="/about">
+                    <a><ClearAllIcon/></a>
+                    </Link>
+                </div>
+                <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
+                    <ArrowUpwardIcon/>
+                </div>
+                <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
+                    <ArrowDownwardIcon/>
+                </div>
+                <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
+                    <SyncAltIcon/>
+                </div>
+            </div>
+
+            <div className="space-y-2">
+                <div className="flex p-3 text-gray-700  space-x-4 0 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
+                    <LockIcon/>
+                </div>
+                <div className="flex p-3 text-gray-700  space-x-4 0 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
+                    <EcoIcon/>
+                </div>
+            </div>
+
+            <div className="space-y-2 py-2">
+                <div className="flex p-3 text-gray-700  space-x-4 0 hover:bg-gray-50 hover:text-blue-600 cursor-pointer">
+                    <LayersIcon/>
+                </div> 
+            </div>
+
         </div>
 
+        
         <div className="flex flex-col min-h-screen h-screen">
             {/* Top bar */}
             <div className="bg-red-500 flex">
@@ -51,13 +108,22 @@ const Layout = ({children}) => {
                     <div className="bg-indigo-600 w-56 flex-none overflow-y-auto">Righ Side. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum illo, accusantium harum impedit at ratione ad modi iste nemo adipisci consequuntur! Magni pariatur amet dicta, alias earum labore repellendus incidunt. Illo, nobis quisquam qui eveniet aperiam in eaque ad, ut, deserunt maiores consectetur. Tempora similique quam, earum eum, molestias hic animi numquam, deserunt eligendi tenetur dolor doloremque! Officiis impedit magni beatae exercitationem odit quibusdam quo perspiciatis in, asperiores cum, hic molestias animi, assumenda optio ex! Vel voluptatibus eveniet reprehenderit impedit dolores sed, quis nesciunt accusantium unde culpa repellendus esse ipsam doloribus modi fuga repellat facilis explicabo! Enim odit corrupti, accusantium, necessitatibus, aut blanditiis nemo rem unde voluptatibus in totam laboriosam? Veniam eum, voluptatem esse voluptatibus quis modi natus autem voluptas architecto! Nesciunt quas consequatur laborum alias porro aliquid deserunt, repellendus quaerat ut nisi. Provident alias vitae sit consequatur obcaecati at nobis aliquid odit excepturi optio esse id ut quia cumque nemo, quod ea corporis aliquam cum accusamus ipsam. Deleniti, possimus? Dolorem qui, sunt temporibus unde ea velit inventore eos, excepturi officiis delectus consectetur odio officia ratione repellendus saepe pariatur fugit nisi, fugiat perferendis? Ratione est laborum molestiae dolorum? Numquam odio, quaerat ut commodi fuga modi perferendis saepe consequatur beatae quasi sunt tempora ea excepturi ducimus quisquam provident repellendus dolore in recusandae rerum animi! Nihil voluptatum libero illo consequuntur sed asperiores eos quasi laborum iure error in minus quo placeat corporis ex doloremque, dolores suscipit quibusdam, vero, maiores mollitia quia minima. Eum minus molestias at, dolorem qui laboriosam aut quod, sequi, dignissimos enim eos. Neque aperiam rerum dolorem quasi a ratione possimus quisquam voluptatem, officiis expedita dignissimos qui exercitationem adipisci et libero dolorum ea. Earum dolores vel blanditiis dicta officiis vitae deserunt sint tempora, illo reiciendis iste repellat similique alias ipsam facilis tenetur corrupti quod obcaecati debitis eos ipsum voluptates voluptatum.</div>
                 </div>
             </div>
-
         </div>
+
     </div>
     </>
       
 
     )
 }
+const DonutLargeIcon = () => (<MdDonutLarge size="32" className="text-gray-300"/>);
+const ClearAllIcon = () => <MdOutlineClearAll size="32" className="text-gray-300" />;
+const ArrowUpwardIcon = () => <AiOutlineArrowUp size="32" className="text-gray-300" />;
+const ArrowDownwardIcon = () => <AiOutlineArrowDown size="32" className="text-gray-300" />;
+const SyncAltIcon = () => <MdSyncAlt size="32" className="text-gray-300" />;
+const LockIcon = () => <AiOutlineLock size="32" className="text-gray-300" />;
+const EcoIcon = () => <MdEco size="32" className="text-gray-300" />;
+const LayersIcon = () => <FiLayers size="32" className="text-gray-300" />;
+
 
 export default Layout
