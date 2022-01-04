@@ -25,10 +25,7 @@ const Header = () =>{
     return (
         <header className="flex text-white h-12">
             <div className="bg-gray-800-mike w-56 flex-none flex items-center justify-between py-2 px-3 border-b border-gray-900">
-                TailWind Css
-                <button>
-                    <ChevDown/>
-                </button>
+                Crypto Coders
             </div>
             <div className="flex flex-1 items-center justify-between bg-gray-700-mike px-4 border-b border-gray-900">
                 <div className="flex items-center">

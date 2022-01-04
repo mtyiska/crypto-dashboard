@@ -1,8 +1,56 @@
+import { useEffect, useState } from "react";
 import {
     FiChevronDown
 } from "react-icons/fi";
+import Tooltip from 'rc-tooltip'
+import 'rc-tooltip/assets/bootstrap_white.css'
 
-const Menu = () =>{
+
+const Menu = ({activeMenuItems}) =>{
+    const [localMenuData, setLocalMenuData] = useState([])
+    useEffect(() =>{
+        setLocalMenuData(activeMenuItems)
+        
+    }, [activeMenuItems])
+
+    const displayMenu = localMenuData.map((item) =>{
+
+        return (
+            <div key={item.id}>
+                <button 
+                onClick={() =>{
+                    
+                    const index = localMenuData.findIndex(menu => menu.id === item.id) // find index of item to update
+                    const newMenuArray = [...localMenuData]//copy array
+                    newMenuArray[index] = {...item, showitems: !item.showitems}
+                    setLocalMenuData(newMenuArray) 
+                }}
+                className="flex items-center text-gray-500 hover:text-gray-200 active:font-semibold">
+                    <ChevDown/>
+                    <h3 className="uppercase tracking-wide font-semibold text-xs active:text-gray-100"> {item.section}</h3>
+                </button>
+                {item.showitems&&<ul className="px-2 py-3 pt-2">
+                    {item.items.map(({title, longname}) =><li key={`${item.id} - ${title} - id`}
+                        className="text-gray-200 px-2 active:text-gray-100 hover:bg-gray-50 hover:text-blue-600 cursor-pointer rounded"> 
+                            <Tooltip placement="right" trigger={['hover']}
+                            mouseEnterDelay={0}
+                            mouseLeaveDelay={0.1}
+                            overlay={<span>{longname}</span>}
+                            align={{
+                                offset: [-90, 10],
+                            }}
+                            >
+                            <a href="#" className="flex items-center">
+                            <span className="text-xl">#</span>
+                                <span className="ml-2">{title}</span>
+                            </a>
+                            </Tooltip>
+                        </li>)}
+                </ul>}
+            </div>
+        )
+    })
+
     return(
         <div className="bg-gray-800-mike w-56 flex-none flex flex-col justify-between">
             <div className="overflow-y-auto active:text-gray-100 hover:text-gray-200 text-gray-400">
@@ -19,24 +67,7 @@ const Menu = () =>{
                             <span className="ml-2">faq</span>
                         </a>
                     </li>
-                    <button className="flex items-center text-gray-500 hover:text-gray-200 active:font-semibold">
-                        <ChevDown/>
-                        <h3 className="uppercase tracking-wide font-semibold text-xs">Tailwind Css</h3>
-                    </button>
-                    <ul class="px-2 py-3 pt-2">
-                        <li class="text-gray-200 px-2 hover:text-gray-200 hover:bg-gray-900 bg-gray-750 rounded">
-                            <a href="#" class="flex items-center">
-                            <span class="text-xl">#</span>
-                            <span class="ml-2">general</span>
-                            </a>
-                        </li>
-                        <li class="text-gray-200 px-2 hover:text-gray-200 hover:bg-gray-900">
-                            <a href="#" class="flex items-center">
-                            <span class="text-xl">#</span>
-                            <span class="ml-2">core-dev</span>
-                            </a>
-                        </li>
-                    </ul>
+                   {displayMenu}
                 </ul>
             </div>
             <div className="bg-gray-footer-mike h-12 px-3 py-2"> footer</div>
