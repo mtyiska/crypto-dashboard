@@ -4,9 +4,11 @@ import {
 } from "react-icons/fi";
 import Tooltip from 'rc-tooltip'
 import 'rc-tooltip/assets/bootstrap_white.css'
+import Link from "next/link"
 
 
-const Menu = ({activeMenuItems}) =>{
+
+const Menu = ({activeMenuItems}) =>{    
     const [localMenuData, setLocalMenuData] = useState([])
     useEffect(() =>{
         setLocalMenuData(activeMenuItems)
@@ -40,10 +42,12 @@ const Menu = ({activeMenuItems}) =>{
                                 offset: [-90, 10],
                             }}
                             >
-                            <a href="#" className="flex items-center">
+                            <div className="flex items-center">
                             <span className="text-xl">#</span>
+                            <Link href={`/portfolio/${longname.toLowerCase().replace(" ", "-")}`}><a> 
                                 <span className="ml-2">{title}</span>
-                            </a>
+                                </a></Link>
+                            </div>
                             </Tooltip>
                         </li>)}
                 </ul>}

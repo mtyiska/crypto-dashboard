@@ -8,30 +8,29 @@ import {
 } from "react-icons/fi"
 import {BsBinocularsFill} from "react-icons/bs"
 import {FaRobot} from "react-icons/fa"
-import Link from 'next/link'
-import { useEffect } from "react/cjs/react.development";
-
+import {useRouter} from "next/router"
+import {menuNames} from '../../utils/menudata'
 
 const MenuIcons = ({activeMenu}) => {
+    const router = useRouter()
 
     return (
         <div className="bg-gray-900-mike w-20 flex-none flex-col min-h-screen h-screen overflow-y-auto px-2 py-2 divide-y-2">
         
             <div className="space-y-2 py-2">
                 <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50/10 cursor-pointer">
-                {/* <Link href="/dashboard"><a> </a></Link> */}
-                    <button onClick={() =>activeMenu('Portfolio Management')}>
+                    <button onClick={() =>{activeMenu(menuNames[0].menuName); router.replace(menuNames[0].url)} }>
                         <Optimization/>
                     </button>
                 </div>
                 <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50/10 cursor-pointer">
-                    <button onClick={() =>activeMenu('Arbitrage Management')}>
+                <button onClick={() =>{activeMenu(menuNames[1].menuName); router.replace(menuNames[1].url)} }>
                         <Arbitrage/>
-                        </button>
+                    </button>
                 </div>
                 <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50/10 cursor-pointer">
-                <button onClick={() =>activeMenu('Machine Learning Algo')}>
-                    <MachineLearning/>
+                <button onClick={() =>{activeMenu(menuNames[2].menuName); router.replace(menuNames[2].url)} }>
+                        <MachineLearning/>
                     </button>
                 </div>
                 <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50/10 cursor-pointer">

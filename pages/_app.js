@@ -3,7 +3,7 @@ import "tailwindcss/tailwind.css";
 import Layout from '../components/Layout';
 
 function MyApp({ Component, pageProps }) {
-  return <Layout>
+  return <Layout {...pageProps}>
     <Component {...pageProps} />
   </Layout>
 }
