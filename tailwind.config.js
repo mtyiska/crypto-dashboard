@@ -41,7 +41,6 @@ module.exports = {
         'black-surface-mike': '#0F1625',
         'black-button-mike': '#70EDE7'
 
-
       },
       spacing: {
         '14': '3.5rem',

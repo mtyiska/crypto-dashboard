@@ -9,8 +9,8 @@ import Rightbar from "./SideBar/Rightbar";
 import { useEffect, useState } from "react";
 import {menuItems} from '../utils/menudata'
 
-
 const Layout = ({children}) => {
+    const [isOpen, setIsOpen] = useState(true);
     // set default active to Portfolio management
     const [activeMenu, setActiveMenu] = useState('Portfolio Management')
     
@@ -23,30 +23,32 @@ const Layout = ({children}) => {
         setMenuData(menuItems.filter((name) => name.menu == activeMenu))
     }, [activeMenu])
 
-
     return (
-    <>
-    <Head>
-        <title>Crypto Dashboard</title>
-    </Head>
-
-    <div className="flex flex-row">
+        <>
+        <Head>
+            <title>Crypto Dashboard</title>
+        </Head>
         <div className="flex flex-1 flex-col">
             <div className="flex flex-col min-h-screen h-screen">
-                <Header/>
+                <div className="flex flex-col bg-blue-500">
+                    <Header setIsOpen={setIsOpen} isOpen={isOpen}/>
+                </div>
                 <div className="flex-1 flex flex-row overflow-y-hidden">
-                    <MenuIcons activeMenu={setActiveMenu}/>
-                    <Menu activeMenuItems={menuData}/>               
-                    <Container >
-                        {children}
-                    </Container>
-                    {/* <Rightbar/> */}
+                    <div className="relative  md:flex ">
+                        <div className={`sidebar flex flex-row bg-blue-800 text-blue-100 absolute inset-y-0 left-0 transform ${isOpen?"-translate-x-full":""} md:relative md:translate-x-0 transition duration-200 ease-in-out`}>
+                            <MenuIcons activeMenu={setActiveMenu}/>
+                            <Menu activeMenuItems={menuData}/>  
+                        </div>
+                        <Container >
+                            {children}
+                        </Container>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </>
+        </>
     )
+    
 }
 
 
