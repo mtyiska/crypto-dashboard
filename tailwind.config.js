@@ -36,7 +36,11 @@ module.exports = {
         'gray-800-mike': '#2F3136',
         'gray-700-mike': '#37383F',
         'gray-form-mike': '#313239',
-        'gray-footer-mike': '#292A2E'
+        'gray-footer-mike': '#292A2E',
+        'black-bb-mike': '#010100',
+        'black-surface-mike': '#0F1625',
+        'black-button-mike': '#70EDE7'
+
 
       },
       spacing: {

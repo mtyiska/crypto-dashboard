@@ -5,16 +5,16 @@ export const menuItems = [
         section:"Performance Analysis",
         showitems:true,
         items:[
-            {title:"PA", longname:"Portfolio Analysis"}, 
-            {title:"PP", longname:"Portfolio Performance"}, 
-            {title:"AC", longname:"Asset Comparison"}, 
-            {title:"SHR", longname:"Sharpe Ratio"}, 
-            {title:"SOR", longname:"Sortino Ratio"}, 
-            {title:"CR", longname:"Calmer Ratio"},
-            {title:"BL", longname:"Black Litterman"},
-            {title:"HERC", longname:"Hierarchical Equal Risk Contribution"},
-            {title:"EP", longname:"Entropy Pooling"},
-            {title:"TIC", longname:"Theory Implied Correlation"}
+            {title:"Portfolio Analysis", longname:"Portfolio Analysis"}, 
+            {title:"Portfolio Performance", longname:"Portfolio Performance"}, 
+            {title:"Portfolio Performance", longname:"Portfolio Performance"}, 
+            {title:"Sharpe Ratio", longname:"Sharpe Ratio"}, 
+            {title:"Sortino Ratio", longname:"Sortino Ratio"}, 
+            {title:"Calmer Ratio", longname:"Calmer Ratio"},
+            {title:"Black Litterman", longname:"Black Litterman"},
+            {title:"Hier Equal Risk Contr.", longname:"Hierarchical Equal Risk Contribution"},
+            {title:"Entropy Pooling", longname:"Entropy Pooling"},
+            {title:"Theory Implied Cor", longname:"Theory Implied Correlation"}
         ]
     },
     {

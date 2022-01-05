@@ -31,12 +31,11 @@ const Layout = ({children}) => {
     </Head>
 
     <div className="flex flex-row">
-        <MenuIcons activeMenu={setActiveMenu}/>
-        
         <div className="flex flex-1 flex-col">
             <div className="flex flex-col min-h-screen h-screen">
                 <Header/>
                 <div className="flex-1 flex flex-row overflow-y-hidden">
+                    <MenuIcons activeMenu={setActiveMenu}/>
                     <Menu activeMenuItems={menuData}/>               
                     <Container >
                         {children}

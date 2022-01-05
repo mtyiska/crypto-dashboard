@@ -15,7 +15,7 @@ const MenuIcons = ({activeMenu}) => {
     const router = useRouter()
 
     return (
-        <div className="bg-gray-900-mike w-20 flex-none flex-col min-h-screen h-screen overflow-y-auto px-2 py-2 divide-y-2">
+        <div className="bg-black-surface-mike w-20 flex-none flex-col min-h-screen h-screen overflow-y-auto px-2 py-2 divide-y-2">
         
             <div className="space-y-2 py-2">
                 <div className="flex p-3 text-gray-700 space-x-4 hover:bg-gray-50/10 cursor-pointer">
@@ -57,11 +57,11 @@ const MenuIcons = ({activeMenu}) => {
     )
 }
 
-const MachineLearning = () => <FaRobot size="32" className="text-gray-300" />;
-const BackTest = () => <    AiOutlineLineChart size="32" className="text-gray-300" />;
-const Screener = () => <BsBinocularsFill size="32" className="text-gray-300" />;
-const LayersIcon = () => <FiLayers size="32" className="text-gray-300" />;
-const Optimization = () => <AiOutlinePieChart size="32" className="text-gray-300"/>
-const Arbitrage = () => <AiOutlineDeploymentUnit size="32" className="text-gray-300"/>
-// const EcoIcon = () => <MdEco size="32" className="text-gray-300" />;
+const MachineLearning = () => <FaRobot size="32" className="text-black-button-mike" />;
+const BackTest = () => <    AiOutlineLineChart size="32" className="text-black-button-mike" />;
+const Screener = () => <BsBinocularsFill size="32" className="text-black-button-mike" />;
+const LayersIcon = () => <FiLayers size="32" className="text-black-button-mike" />;
+const Optimization = () => <AiOutlinePieChart size="32" className="text-black-button-mike"/>
+const Arbitrage = () => <AiOutlineDeploymentUnit size="32" className="text-black-button-mike"/>
+// const EcoIcon = () => <MdEco size="32" className="text-black-button-mike" />;
 export default MenuIcons
