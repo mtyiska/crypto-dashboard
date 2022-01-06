@@ -39,8 +39,8 @@ module.exports = {
         'gray-footer-mike': '#292A2E',
         'black-bb-mike': '#010100',
         'black-surface-mike': '#0F1625',
-        'black-button-mike': '#70EDE7'
-
+        'black-button-mike': '#70EDE7',
+        'card-surface': '#272A38'
       },
       spacing: {
         '14': '3.5rem',
@@ -108,5 +108,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    require('daisyui')
   ],
 }

@@ -2,14 +2,18 @@ import React from "react";
 
 import { FiUsers} from "react-icons/fi";
 import {BiSearch} from "react-icons/bi"
+import {useRouter} from "next/router"
+import {GiHamburgerMenu} from "react-icons/gi"
 
 const Header = ({setIsOpen, isOpen}) =>{
+    const router = useRouter()
     return (
         <header className="flex text-white h-16">
-            {/* <div className="flex flex-1 items-center justify-between bg-gray-900-mike px-4 border-b border-gray-900"> */}
             <div className="flex flex-1 items-center justify-between bg-black-surface-mike px-4 border-b border-gray-900">
                 <div className="flex items-center">
-                    <div className="text-black-button-mike text-2xl hidden md:block">Crypto Coders</div>
+                    <div className="text-black-button-mike text-2xl hidden md:block"><button onClick={()=>router.push('/')}>
+                        Crypto Coders
+                        </button></div>
                     <a href="#" className="ml-4">
                         <div className="flex-1">
 
@@ -29,11 +33,8 @@ const Header = ({setIsOpen, isOpen}) =>{
                 type="button"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
-                className="mobile-menu-button p-4 focus:outline-none focus:bg-gray-700 md:hidden"
-                >
-                    <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
+                className="mobile-menu-button p-4 focus:outline-none active:bg-gray-700 md:hidden"
+                ><GiHamburgerMenu size="24" className="text-black-button-mike"/>
                 </button>   
                 </div>
             </div>

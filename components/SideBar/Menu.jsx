@@ -9,18 +9,34 @@ import {useRouter} from "next/router"
 
 
 
-const Menu = ({activeMenuItems}) =>{    
+const Menu = ({activeMenuItems, setIsOpen, isOpen}) =>{    
     const router = useRouter()
+    const {asPath} = router;
+    let displayMenu;
+
+    if(asPath === '/'){
+        return (
+            <div className="bg-black-bb-mike w-56 flex-none flex flex-col justify-between">
+            <div className="flex flex-1 border-r border-gray-500/30">
+            </div>
+            <div className="bg-gray-footer-mike h-12 px-3 py-2"> footer</div>
+            </div>
+            )
+    }
+    
     const [localMenuData, setLocalMenuData] = useState([])
+    
     useEffect(() =>{
         setLocalMenuData(activeMenuItems)
-        
     }, [activeMenuItems])
+    
 
-    const displayMenu = localMenuData.map((item) =>{
+    
+
+    displayMenu = localMenuData.map((item) =>{
 
         return (
-            <div key={item.id}>
+            <div key={`${asPath}${item.id}`}>
                 <button 
                 onClick={() =>{
                     
@@ -28,6 +44,7 @@ const Menu = ({activeMenuItems}) =>{
                     const newMenuArray = [...localMenuData]//copy array
                     newMenuArray[index] = {...item, showitems: !item.showitems}
                     setLocalMenuData(newMenuArray) 
+                    setIsOpen(!isOpen)
                 }}
                 className="flex items-center text-gray-500 hover:text-gray-200 active:font-semibold">
                     <ChevDown/>
@@ -38,7 +55,7 @@ const Menu = ({activeMenuItems}) =>{
                     <li key={`${item.id} - ${title} - id`}
                         className="text-gray-400 px-2 active:text-gray-100 hover:bg-black-button-mike hover:text-blue-600 hover:text-xl cursor-pointer rounded h-8 truncate ...">   
                             <div className="flex items-center px-y">
-                                <button onClick={() => router.push(`/portfolio/${longname.toLowerCase().replace(" ", "-")}`)}>
+                                <button onClick={() => router.replace(`${asPath}/${longname.toLowerCase().replace(" ", "-")}`)}>
                                 <span className="ml-2">{longname}</span>
                                 </button>
                             </div>
@@ -50,7 +67,7 @@ const Menu = ({activeMenuItems}) =>{
 
     return(
         <div className="bg-black-bb-mike w-56 flex-none flex flex-col justify-between">
-            <div className="overflow-y-auto active:text-gray-100 hover:text-gray-200 text-gray-400">
+            <div className="overflow-y-auto active:text-gray-100 hover:text-gray-200 text-gray-400 border-r border-gray-500/30">
                 <ul className="px2 py-3">
                     <li className="text-gray-300 px-2 active:text-gray-100 hover:bg-black-button-mike hover:text-xl hover:text-blue-600 cursor-pointer">
                         <a href="#" className="flex items-center">

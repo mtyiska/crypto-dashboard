@@ -31,13 +31,13 @@ const Layout = ({children}) => {
         <div className="flex flex-1 flex-col">
             <div className="flex flex-col min-h-screen h-screen">
                 <div className="flex flex-col bg-blue-500">
-                    <Header setIsOpen={setIsOpen} isOpen={isOpen} />
+                    <Header setIsOpen={setIsOpen} isOpen={isOpen}/>
                 </div>
                 <div className="flex-1 flex flex-row overflow-y-hidden">
                     <div className="relative md:flex">
                         <div className={`sidebar flex flex-row bg-blue-800 text-blue-100 absolute inset-y-0 left-0 transform ${isOpen?"-translate-x-full":""} md:relative md:translate-x-0 transition duration-200 ease-in-out`}>
                             <MenuIcons activeMenu={setActiveMenu}/>
-                            <Menu activeMenuItems={menuData} setIsOpen={setIsOpen} isOpen={isOpen}/>  
+                            <Menu activeMenuItems={menuData}/>  
                         </div>
                     </div>
                     <div className="flex flex-1 flex-col bg-black-bb-mike">

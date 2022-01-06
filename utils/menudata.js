@@ -7,7 +7,6 @@ export const menuItems = [
         items:[
             {title:"Portfolio Analysis", longname:"Portfolio Analysis"}, 
             {title:"Portfolio Performance", longname:"Portfolio Performance"}, 
-            {title:"Portfolio Performance", longname:"Portfolio Performance"}, 
             {title:"Sharpe Ratio", longname:"Sharpe Ratio"}, 
             {title:"Sortino Ratio", longname:"Sortino Ratio"}, 
             {title:"Calmer Ratio", longname:"Calmer Ratio"},
