@@ -2,7 +2,7 @@ import { useRouter} from 'next/router'
 import matter from 'gray-matter';
 import ReactMarkdown from "react-markdown";
 
-const Portfolio = ({contentData}) => {
+const Tools = ({contentData}) => {
     const router = useRouter()
     // console.log(algodata)
     // router.query.<name-in-folder-square-braces
@@ -19,7 +19,8 @@ const Portfolio = ({contentData}) => {
     )
 }
 
-export default Portfolio
+
+export default Tools
 
 export async function getStaticProps(){
     const fs = require("fs");

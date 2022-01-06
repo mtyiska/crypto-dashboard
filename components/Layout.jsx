@@ -11,17 +11,9 @@ import {menuItems} from '../utils/menudata'
 
 const Layout = ({children}) => {
     const [isOpen, setIsOpen] = useState(true);
-    // set default active to Portfolio management
-    const [activeMenu, setActiveMenu] = useState('Portfolio Management')
     
     // Set menu data to const menuItems above filtered by Active Menu data
-    const [menuData, setMenuData] = useState(()=>
-        menuItems.filter((name) => name.menu == activeMenu)
-    )
-
-    useEffect(() =>{
-        setMenuData(menuItems.filter((name) => name.menu == activeMenu))
-    }, [activeMenu])
+    const [menuData, setMenuData] = useState(menuItems)
 
     return (
         <>
@@ -36,8 +28,8 @@ const Layout = ({children}) => {
                 <div className="flex-1 flex flex-row overflow-y-hidden">
                     <div className="relative md:flex">
                         <div className={`sidebar flex flex-row bg-blue-800 text-blue-100 absolute inset-y-0 left-0 transform ${isOpen?"-translate-x-full":""} md:relative md:translate-x-0 transition duration-200 ease-in-out`}>
-                            <MenuIcons activeMenu={setActiveMenu}/>
-                            <Menu activeMenuItems={menuData} setIsOpen={setIsOpen} isOpen={isOpen}/>  
+                            {/* <MenuIcons activeMenu={setActiveMenu}/> */}
+                            <Menu menuData={menuData}/>  
                         </div>
                     </div>
                     <div className="flex flex-1 flex-col bg-black-bb-mike">
