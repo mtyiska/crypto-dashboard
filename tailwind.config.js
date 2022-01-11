@@ -40,7 +40,8 @@ module.exports = {
         'black-bb-mike': '#010100',
         'black-surface-mike': '#0F1625',
         'black-button-mike': '#70EDE7',
-        'card-surface': '#272A38'
+        'card-surface': '#272A38',
+        'white-mike':'#FEFEFF'
       },
       spacing: {
         '14': '3.5rem',
@@ -58,6 +59,9 @@ module.exports = {
       lineHeight: {
         'extra-loose': '2.5',
       },
+      zIndex: {
+        "-1": "-1",
+      }
     },
     container: {
       padding: '1rem'
@@ -104,10 +108,9 @@ module.exports = {
     },
   },
   variants: {
-    textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+    textColor: ['responsive', 'hover', 'focus', 'group-hover', 'focus-within'],
   },
   plugins: [
     require('@tailwindcss/typography'),
-    require('daisyui')
   ],
 }

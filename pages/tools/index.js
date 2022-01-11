@@ -2,6 +2,12 @@ import { useRouter} from 'next/router'
 import matter from 'gray-matter';
 import ReactMarkdown from "react-markdown";
 
+import dynamic from 'next/dynamic'
+
+// const DynamicPlot = dynamic(import('../../components/Chart/plot'), {
+//   ssr: false
+// })
+
 const Tools = ({contentData}) => {
     const router = useRouter()
     // console.log(algodata)
@@ -9,12 +15,12 @@ const Tools = ({contentData}) => {
     // const algoname = router.query.algoname
     const {data, content} = matter(contentData[0].toString());
     return (
-      <div id="blog-post-container">
-        <div className="container">
-          <h1 className="header">{data.title}</h1>
-          <h3>{data.description}</h3>
-            <ReactMarkdown children={content} /> 
-        </div>
+      <div className="container">
+        <h1 className="header">{data.title}</h1>
+        <h3>{data.description}</h3>
+        <ReactMarkdown children={content} /> 
+
+         {/* <DynamicPlot /> */}
       </div>
     )
 }

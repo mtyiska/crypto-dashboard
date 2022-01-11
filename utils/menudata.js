@@ -3,6 +3,8 @@ export const menuItems = [
         id: "1",
         menu:"Portfolio Management",
         section:"Performance Analysis",
+        icon:"AiOutlinePieChart",
+        iconsub:"ai",
         showitems:true,
         items:[
             {title:"portfolio-analysis", longname:"Portfolio Analysis"}, 
@@ -20,6 +22,8 @@ export const menuItems = [
         id: "2",
         menu:"Portfolio Management",
         section:"Risk Analysis",
+        icon:"AiOutlineLineChart",
+        iconsub:"ai",
         showitems:true,
         items:[
             {title:"drawdowns", longname:"Drawdowns"},
@@ -38,6 +42,8 @@ export const menuItems = [
         id: "3",
         menu:"Portfolio Management",
         section:"Optimization",
+        icon:"MdEco",
+        iconsub:"md",
         showitems:true,
         items:[
             {title:"asset-correlation", longname:"Asset Correlations"},
@@ -54,6 +60,8 @@ export const menuItems = [
         id: "4",
         menu:"Portfolio Management",
         section:"Factor Model",
+        icon:"FiLayers",
+        iconsub:"fi",
         showitems:true,
         items:[{title:"Alpha", longname:"Alpha"}, {title:"Beta", longname:"Beta"}]
     },
@@ -61,6 +69,8 @@ export const menuItems = [
         id: "5",
         menu:"Arbitrage Management",
         section:"Statistical Arbitrage",
+        icon:"AiOutlineDeploymentUnit",
+        iconsub:"ai",
         showitems:true,
         items:[
             {title:"distance-approach", longname:"Distance Approach"},

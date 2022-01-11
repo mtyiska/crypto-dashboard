@@ -66,7 +66,7 @@ const createGradient =(ctx, area) =>{
   return gradient;
 }
 
-const  CustomChart =() =>{
+const  CustomGraph =() =>{
   const chartRef = useRef(null);
   const [chartData, setChartData] = useState({
     datasets: [],
@@ -91,13 +91,11 @@ const  CustomChart =() =>{
   }, [])
 
   return (
-      <div className=" bg-white ml-2   shadow-sm w-8/12 border rounded-xl border-gray-100">
-
+      <div>
             <div className="border-b p-3 border-gray-100">
                 <p className="font-semibold  ">Bitcoin </p>
             </div>
-            <div>
-              
+            <div> 
                 <Chart ref={chartRef} type='line' data={chartData} />
             </div>
         </div>
@@ -105,4 +103,4 @@ const  CustomChart =() =>{
   
 }
 
-export default CustomChart;
+export default CustomGraph;

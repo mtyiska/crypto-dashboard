@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
-import {
-    FiChevronDown
-} from "react-icons/fi";
-import 'rc-tooltip/assets/bootstrap_white.css'
-import {useRouter} from "next/router"
+import React, { useEffect, useState } from "react";
 
+import {useRouter} from "next/router"
+import * as AIcons from "react-icons/ai"
+import *as MDIcons from "react-icons/md"
+import * as FIcons from "react-icons/fi"
+import {BsBinocularsFill} from "react-icons/bs"
+import {FaRunning} from "react-icons/fa"
 
 const Menu = ({menuData}) =>{    
     const router = useRouter()
@@ -14,51 +15,48 @@ const Menu = ({menuData}) =>{
         setLocalMenuData(menuData)
     }, [menuData])
     
-
     const displayMenu = localMenuData.map((item) =>{
+        const tIcon = item.iconsub;
+        const iconName = item.icon;
+        
+        const myicon = tIcon === "ai" ? AIcons[iconName]:
+        tIcon === "md" ? MDIcons[iconName]: FIcons[iconName]
+
         return (
             <div key={item.id}>
-                <button 
-                className="flex items-center text-gray-500 hover:text-gray-200 active:font-semibold">
-                    <FiChevronDown size="32" className="text-gray-300"/>
+                <a href="#"
+                className="flex px-3 py-2 space-x-3 rounded transition duration-200 text-gray-700 hover:bg-blue-700 hover:text-gray-200 active:font-semibold no-underline">
+                    <span>{React.createElement(myicon, {size:"32", className:"text-black-button-mike"})}</span>
                     <h3 className="uppercase tracking-wide font-semibold text-xs active:text-gray-100"> {item.section}</h3>
-                </button>
-                {item.showitems&&<ul className="px-2 py-3 pt-2">
+                </a>
+                {item.showitems&&<ul>
                     {item.items.map(({title, longname}) =>
                     <li key={`${item.id} - ${title} - id`}
-                    className="text-gray-400 px-2 active:text-gray-100 hover:bg-black-button-mike hover:text-blue-600 hover:text-xl cursor-pointer rounded h-8 truncate ...">   
+                    className="block py-0.5 rounded transition duration-200 text-gray-700 hover:bg-blue-700 hover:text-white no-underline truncate ...">   
                         <div className="flex items-center px-y">
                             <button onClick={() => router.push(`/tools/${title.toLowerCase().replace(" ", "-")}`)}>
-                            <span className="ml-2">{longname}</span>
+                            <span className="ml-2 text-sm">{longname}</span>
                             </button>
                         </div>
-                    </li>)}
+                    </li>
+                    )}
                 </ul>}
             </div>
         )
     })
 
     return(
-        <div className="bg-black-bb-mike w-64 flex-none flex flex-col justify-between">
-            <div className="overflow-y-auto active:text-gray-100 hover:text-gray-200 text-gray-400 border-r border-gray-500/30 px-2">
-                <ul className="px2 py-3">
-                    <li className="text-gray-300 px-2 active:text-gray-100 hover:bg-black-button-mike hover:text-xl hover:text-blue-600 cursor-pointer">
-                        <a href="#" className="flex items-center">
-                            <span className="text-xl">#</span>
-                            <span className="ml-2">welcome</span>
-                        </a>
-                    </li>
-                    <li className="text-gray-300 px-2 active:text-gray-100 hover:bg-black-button-mike hover:text-xl hover:text-blue-600 cursor-pointer">
-                        <a href="#" className="flex items-center">
-                            <span className="text-xl">#</span>
-                            <span className="ml-2">faq</span>
-                        </a>
-                    </li>
-                   {displayMenu}
-                </ul>
-            </div>
-            <div className="bg-gray-footer-mike h-12 px-3 py-2"> footer</div>
-        </div>
+        <nav > 
+            <a href="/quick-portfolio" className="pb-4 px-3 py-2 space-x-3 flex rounded transition duration-200 text-gray-700 hover:bg-blue-700 hover:text-white-mike no-underline">
+                <FaRunning size="32" className="text-black-button-mike" />
+                <h3 className="uppercase tracking-wide font-semibold text-xs active:text-gray-100">Quick Portfolio</h3>   
+            </a>
+            <a href="#" className="pb-4 px-3 py-2 space-x-3 flex rounded transition duration-200 text-gray-700 hover:bg-blue-700 hover:text-white-mike no-underline">
+                <BsBinocularsFill size="32" className="text-black-button-mike" />
+                <h3 className="uppercase tracking-wide font-semibold text-xs active:text-gray-100">Crypto Scanner</h3>   
+            </a>
+            {displayMenu}
+        </nav>
     )
 }
 

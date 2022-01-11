@@ -1,5 +1,5 @@
 import Card from "../components/Card";
-import CustomChart from "../components/CustomChart";
+import CustomChart from "../components/Chart/CustomChart";
 
 const Dashboard = () =>{
     return (
