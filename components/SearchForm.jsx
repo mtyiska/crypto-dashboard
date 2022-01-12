@@ -1,14 +1,103 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import FnTable from "./Table"
 import {AiOutlineDownload, AiOutlineClose} from "react-icons/ai"
 import {FaSave} from "react-icons/fa"
 
 const SearchForm = ({title="Portfolio"}) => {
-  const [symbols, setSymbols] = useState([0,1])
-    return (
+  const symbolData = [
+    {
+      id:"1",
+      name:'BTC'}, 
+    {
+      id:"2",
+      name:'ETH'}, 
+    {
+      id:"3",
+      name:'BNB'}, 
+    {
+      id:"4",
+      name:'SOL'}, 
+    {
+      id:"5",
+      name:'LUNA'}, 
+    {
+      id:"6",
+      name:'LINK'}, 
+    {
+      id:"7",
+      name:'GRT'},
+  ]
+  const [symbols, setSymbols] = useState([])
+  const [searchSymbol, setSearchSymbol] = useState('')
+  const [searchResults, setSearchResults] = useState([])
+  const [assetPercent, setAssetPercent] = useState(100)
 
-      
-      <form action="#" method="POST">
+  const handleSymbolChange = evt => {
+    evt.preventDefault()
+    setSearchSymbol(evt.target.value)
+  }
+
+  const handleSubmit = evt =>{
+    evt.preventDefault()
+    if(searchSymbol ===""){
+      return
+    }
+    const result = symbolData.filter(s => s.name.toLowerCase() === searchSymbol.toLowerCase())[0]
+    if(!result){
+      return
+    }
+    
+    const duplicate = symbols.filter(s=> s.name === result.name)
+    if(duplicate.length === 0){
+      setSymbols([...symbols, result])
+    }
+    setSearchSymbol('')
+  }
+
+
+  const handleSelect =(evt, value) =>{
+    evt.preventDefault()
+    if(value ===""){
+      return
+    }
+    
+    const result = symbolData.filter(s => s.name.toLowerCase() === value.name.toLowerCase())[0]
+    setSearchSymbol('')
+    if(!result){
+      return
+    }
+
+  const duplicate = symbols.filter(s=> s.name === result.name)
+    if(duplicate.length === 0){
+      setSymbols([...symbols, result])
+    }
+    setSearchSymbol('')
+  }
+
+  const handleRemove = (value) =>{
+    if(value ===""){
+      return
+    }
+    const result = symbols.filter((item) => item.id !== value);
+    setSymbols(result)
+  }
+
+  useEffect(() =>{
+    if(searchSymbol ===""){
+      setSearchResults([])
+      return
+    }
+    const result = symbolData.filter(s => s.name.toLowerCase().includes(searchSymbol))
+    setSearchResults(result)
+  }, [searchSymbol])
+
+
+  // useEffect(() =>{
+  //   console.log('symbols are', symbols)
+  // }, [symbols])
+
+
+    return (
         <div className="mt-8 mb-12">
             
             {/* Header of form */}
@@ -27,7 +116,28 @@ const SearchForm = ({title="Portfolio"}) => {
 
                 {/* Middle section 1 of form */}
                 <div className="px-3">
-                  <input className="mt-1 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-inner"  type="text" placeholder="Add to portfolio"/>
+                  <div>
+                    <ul>
+                      {searchResults.map((item, idx) => (
+                        <li key={idx} 
+                        onClick={(evt)=>handleSelect(evt, item)}
+                        className="cursor-pointer hover:bg-gray-300/50 px-3"
+                        >{item.name}</li>
+                      ))}
+                    </ul>
+
+                    <form onSubmit={handleSubmit}>
+                      <input
+                      value={searchSymbol}
+                      onChange={handleSymbolChange}
+                      className="mt-1 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-inner"  
+                      type="text" 
+                      placeholder="Add to portfolio"
+                      />
+                    </form>
+                  
+                  </div>
+
                   {symbols.length === 0 &&
                   <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                     <div className="space-y-1 text-center">
@@ -47,18 +157,31 @@ const SearchForm = ({title="Portfolio"}) => {
                         <div className="w-1/6"><span>Weight</span></div>
                         <div className="w-1/6"><span></span></div>
                       </div>
-                      <div className="flex w-full justify-between space-x-1 border-b border-gray-300/50 px-3 py-2">
-                        <div className="w-4/6">
-                          <span className="block">VTI</span> 
-                          <span className="block">Vanguard Total Stock Market ETF</span>
-                        </div>
-                        <div className="w-1/6">
-                          <input className="mt-1 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text" placeholder="%"/>
-                        </div>
-                        <div className="w-1/6 flex items-center justify-center">
-                          <AiOutlineClose size={20}/>
-                          </div>
+
+                      <div className="space-y-3 border-b border-gray-300/50 px-3 py-2 divide-y divide-gray-300/50">
+                        {
+                          symbols.map((item, index) =>(
+                            <div key={item.id} className="flex w-full pt-2">
+                              <div className="w-4/6">
+                                <span className="block">{item.name}</span> 
+                              </div>
+                              <div className="w-1/6 mb-2">
+                                <span className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                  {parseFloat(100/symbols.length).toPrecision(5)}
+                                </span>
+                              </div>
+                              <div className="w-1/6 flex items-center justify-center">
+                                <AiOutlineClose 
+                                onClick={()=>handleRemove(item.id)}
+                                size={20}/>
+                              </div>
+                            </div>
+
+                          ))
+                        }
+                       
                       </div>
+
                       <div className="flex w-full justify-between space-x-1 px-3">
                         <div className="w-4/6">
                           <span>Total</span>
@@ -85,7 +208,6 @@ const SearchForm = ({title="Portfolio"}) => {
                 </button>
             </div>
         </div>
-      </form>
     )
 }
 
